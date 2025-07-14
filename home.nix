@@ -16,6 +16,7 @@
     # ./modules/neovim.nix
     ./modules/nerdfont.nix
     ./modules/starship.nix
+    ./modules/swaylock.nix
     ./modules/waybar.nix
     ./modules/zoxide.nix
   ];
