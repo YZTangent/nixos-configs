@@ -13,7 +13,6 @@
     ./modules/fish.nix
     ./modules/fuzzel.nix
     ./modules/git.nix
-    # ./modules/neovim.nix
     ./modules/nerdfont.nix
     ./modules/starship.nix
     ./modules/swaylock.nix
@@ -58,6 +57,10 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
+
+    ".config/niri/config.kdl" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/niri/config.kdl;
+    };
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''

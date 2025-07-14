@@ -42,6 +42,7 @@
       ls = "eza";
       ll = "eza -l";
       la = "eza -a";
+      v = "nvim";
     };
 
 	#    plugins = [

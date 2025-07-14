@@ -28,6 +28,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.yztangent = import ./home.nix;
+	    home-manager.backupFileExtension = "backup";
 
             # This makes the flake's inputs available to home.nix and its modules
             home-manager.extraSpecialArgs = { inherit inputs; };
