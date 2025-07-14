@@ -11,6 +11,7 @@
     ./modules/btop.nix
     ./modules/eza.nix
     ./modules/fish.nix
+    ./modules/fuzzel.nix
     ./modules/git.nix
     # ./modules/neovim.nix
     ./modules/nerdfont.nix
