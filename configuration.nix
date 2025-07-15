@@ -97,6 +97,10 @@
   # Use fish
   programs.fish.enable = true;
 
+  # ITS GAMER TIME
+  programs.steam.enable = true;
+  programs.xwayland.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
