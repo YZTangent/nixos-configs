@@ -16,7 +16,6 @@
     ./modules/nerdfont.nix
     ./modules/starship.nix
     ./modules/swaylock.nix
-    ./modules/waybar.nix
     ./modules/zoxide.nix
   ];
   
@@ -29,12 +28,20 @@
   # release notes.
   home.stateVersion = "25.05"; # Please read the comment before changing.
 
+  # Enable necessary packages
+  programs.waybar.enable = true;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
+
+    # Communications
+    pkgs.telegram-desktop
+    pkgs.discord
+    pkgs.xclip
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -61,6 +68,12 @@
     ".config/niri/config.kdl" = {
       source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/niri/config.kdl;
     };
+
+    ".config/waybar" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/waybar;
+      recursive = true;
+    };
+
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''

@@ -1,0 +1,178 @@
+* {
+  /* font-family: "CaskaydiaCove Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Free Solid"; */
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 16px;
+  border-radius: 0;
+  min-height: 0;
+  border: none;
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+#workspaces{
+  background-color: rgba(24,24,37,1.0);
+  border: none;
+  box-shadow: none;
+}
+
+#tray{
+  margin: 6px 0px;
+  background-color: rgba(36, 36, 52, 1.0);
+  padding: 6px 12px; /* 保持内部间距 */
+  border-radius: 6px;
+  border-width: 0px;
+}
+
+#waybar {
+  background-color: #181825;
+  /* background-color: rgba(0, 0, 0, 0); */
+  transition-property: background-color;
+  transition-duration: 0.5s;
+
+  /* --- Border and Shadow (External Effect) --- */
+  /* 1. Add padding on the right to create space for the border.
+     The modules inside the bar should respect this padding. */
+
+  /* 2. Prevent the bar's background from drawing into the padding area.
+     This makes space for the border-image to be visible. */
+  background-clip: padding-box;
+
+  /* 3. Create a transparent border that will be filled by the gradient.
+     The width should match the padding-right value. */
+  border-right: 2px solid #111111;
+
+  /* 4. Apply the linear gradient as the border image. */
+  border-image-source: linear-gradient(to bottom, #8BE9FD, #FF79C6);
+
+  /* 5. Slice the border image. '1' tells it to use the full gradient. */
+  border-image-slice: 1;
+
+  /* 6. Add a drop shadow only on the right side.
+     This will now appear correctly outside the new border. */
+  box-shadow: 5px 0px 10px -2px rgba(0, 0, 0, 0.55);
+}
+
+#clock{
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  margin: 3px 0px;
+  background-color: #1e1e2e;
+  color: #181825;
+  background-image: linear-gradient(
+      120deg,
+      rgba(255,255,255, 0) 60%,
+      rgba(255,255,255, .3),
+      rgba(255,255,255, 0) 90%
+  );
+  box-shadow: 5px 0px 10px -2px rgba(0, 0, 0, 0.55);
+}
+
+#window,
+#custom-power,
+#custom-reboot,
+#bluetooth,
+#battery,
+#pulseaudio,
+#backlight,
+#custom-temperature,
+#memory,
+#cpu,
+#network,
+#custom-lock{
+  font-size: 12px;
+  border-radius: 4px;
+  margin: 3px 0px;
+  background-color: #1e1e2e;
+  color: #181825;
+  background-image: linear-gradient(
+      120deg,
+      rgba(255,255,255, 0) 60%,
+      rgba(255,255,255, .3),
+      rgba(255,255,255, 0) 90%
+  );
+  box-shadow: 5px 0px 10px -2px rgba(0, 0, 0, 0.55);
+}
+
+#clock {
+  background-color: #89b4fa;
+}
+#custom-power{
+  background-color: #f38ba8;
+}
+#custom-reboot{
+  background-color: #a6e3a1;
+}
+#bluetooth{
+  background-color: #f9e2af;
+}
+#battery{
+  background-color: #cba6f7;
+}
+#pulseaudio{
+  background-color: #89dceb;
+}
+#backlight{
+  background-color: #a6a3a1;
+}
+#custom-temperature{
+  background-color: #74c7ec;
+}
+#memory{
+  background-color: #f7768e;
+}
+#cpu{
+  background-color: #f38ba8;
+}
+#network{
+  background-color: #fab387;
+}
+#custom-lock{
+  background-color: #94e2d5;
+}
+#window{
+  background-color: #74c7ec;
+}
+
+#waybar.hidden {
+  opacity: 0.5;
+}
+
+#workspaces button {
+  all: initial;
+  /* Remove GTK theme values (waybar #1351) */
+  min-width: 0;
+  /* Fix weird spacing in materia (waybar #450) */
+  box-shadow: inset 0 -3px transparent;
+  /* Use box-shadow instead of border so the text isn't offset */
+  margin: 6px 0px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: rgba(36, 36, 52, 1.0);
+  color: #cdd6f4;
+}
+
+#workspaces button.active {
+  color: #1e1e2e;
+  background-color: #cdd6f4;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: #1e1e2e;
+  background-color: #cdd6f4;
+}
+
+tooltip {
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #131822;
+  color: #C0C0C0;
+}
+
+tooltip label {
+  padding: 5px;
+  background-color: #131822;
+  color: #C0C0C0;
+}

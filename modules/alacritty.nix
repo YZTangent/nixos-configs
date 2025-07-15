@@ -8,13 +8,17 @@
     # Basic settings to get you started
     settings = {
       window = {
-        padding = { x = 0; y = 9 ; };
+        padding = { x = 0; y = 0 ; };
         decorations = "None";
-        opacity = 0.8; 
+        # opacity = 0.8; 
       };
       font = {
         normal.family = "JetBrainsMono Nerd Font";
-        size = 11;
+        size = 9;
+	# offset = {
+	#   x = 0;
+	#   y = 1;
+	# };
       };
     };
   };

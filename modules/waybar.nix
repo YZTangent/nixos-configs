@@ -7,18 +7,24 @@
     settings = {
       mainBar = {
         layer = "top";
-        position = "top";
-        height = 30;
+        position = "left";
+	orientation = "vertical";
         modules-left = [ "niri/workspaces" "niri/mode" ];
         modules-center = [ "clock" ];
-        modules-right = [ "pulseaudio" "network" "battery" "tray" ];
+        modules-right = [ "pulseaudio" "network" "battery" "cpu" "memory" "tray" ];
         "niri/workspaces" = {
           "all-outputs" = true;
           "on-click" = "activate";
         };
         "clock" = {
-          "format" = "{:%H:%M}";
-          "tooltip-format" = "<big>{:%Y-%m-%d}</big>\n<tt><small>{calendar}</small></tt>";
+          "format" = "{:%H\n%M}";
+          "tooltip-format" = "<big>{:%A %d %h %Y}</big>\n<tt><small>{calendar}</small></tt>";
+        };
+        "cpu" = {
+          "format" = "<span foreground='#8ec07c'></span> {usage}%";
+        };
+        "memory" = {
+          "format" = "<span foreground='#d79921'>Mem</span> {used:0.1f}G";
         };
       };
     };

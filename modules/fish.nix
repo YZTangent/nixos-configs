@@ -43,6 +43,8 @@
       ll = "eza -l";
       la = "eza -a";
       v = "nvim";
+      pbcopy="xclip -selection clipboard";
+      pbpaste="xclip -selection clipboard -o";
     };
 
 	#    plugins = [
