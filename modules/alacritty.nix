@@ -10,7 +10,7 @@
       window = {
         padding = { x = 0; y = 0 ; };
         decorations = "None";
-        # opacity = 0.8; 
+        opacity = 0.8; 
       };
       font = {
         normal.family = "JetBrainsMono Nerd Font";

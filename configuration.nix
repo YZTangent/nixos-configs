@@ -109,6 +109,17 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     neovim
     git
+    gnumake
+    clang
+    clang-tools
+    cmake
+    fzf
+    ripgrep
+  ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
