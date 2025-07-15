@@ -100,6 +100,14 @@ input {
     position x=1280 y=0
 }
 
+cursor {
+    xcursor-theme "breeze_cursors"
+    xcursor-size 24
+
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
@@ -173,7 +181,7 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        active-gradient from="#80c8ff" to="#bbddff" angle=45
+        active-gradient from="#ff00ff" to="#80c8ff" angle=135
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
@@ -256,6 +264,11 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
+spawn-at-startup "swaybg" "-i" "/home/yztangent/.config/niri/wallpapers/purplecreek.png" "-m" "fill"
+
+hotkey-overlay{
+  skip-at-startup
+}
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.

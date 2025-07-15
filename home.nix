@@ -33,15 +33,17 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
 
     # Communications
-    pkgs.telegram-desktop
-    pkgs.discord
-    pkgs.xclip
+    telegram-desktop
+    discord
+
+    # Wallpaper
+    swaybg
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -65,8 +67,9 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
-    ".config/niri/config.kdl" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/niri/config.kdl;
+    ".config/niri" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/niri;
+      recursive = true;
     };
 
     ".config/waybar" = {

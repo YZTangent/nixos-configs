@@ -42,7 +42,8 @@
   border-right: 2px solid #111111;
 
   /* 4. Apply the linear gradient as the border image. */
-  border-image-source: linear-gradient(to bottom, #8BE9FD, #FF79C6);
+  /* border-image-source: linear-gradient(to bottom, #8BE9FD, #FF79C6); */
+  border-image-source: linear-gradient(to top, #8BE9FD, #FF08FF);
 
   /* 5. Slice the border image. '1' tells it to use the full gradient. */
   border-image-slice: 1;

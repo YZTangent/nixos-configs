@@ -72,16 +72,16 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon} \n{capacity}% ",
-    "format-charging": "󱐋 \n{capacity}%",
+    "format": "{icon}\n{capacity}%",
+    "format-charging": "󱐋\n{capacity}%",
 	  "interval": 1,
     "format-icons": ["󰂎", "󰁼", "󰁿", "󰂁", "󰁹"],
     "tooltip": true,
     "justify": "center"
   },
   "pulseaudio": {
-    "format": "{icon} \n{volume}% ",
-    "format-muted": "󰖁 \n0% ",
+    "format": "{icon} \n{volume}%",
+    "format-muted": "󰖁 \n0%",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -122,7 +122,7 @@
   "clock": {
     "interval": 1,
     "timezone": "Asia/Singapore",
-    "format": " \n{:%H%M\n\n%h\n%d}th",
+    "format": "\n{:%H%M\n\n%h\n%d}th",
     "tooltip": true,
     "tooltip-format": "<big>{:%A %d %h %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "justify": "center"
@@ -133,7 +133,7 @@
   },
   "backlight": {
     "device": "intel_backlight",
-    "format": "{icon} \n{percent}% ",
+    "format": "{icon} \n{percent}%",
     "tooltip": true,
     "tooltip-format": "当前屏幕亮度: {percent}%",
     "format-icons": [
@@ -145,9 +145,9 @@
     "justify": "center"
   },
   "bluetooth": {
-    "format": " \n{status} ",
-    "format-connected": "\n{device_battery_percentage}% ",
-    "format-connected-battery": "\n{device_battery_percentage}% ",
+    "format": "\n{status}",
+    "format-connected": "\n{device_battery_percentage}%",
+    "format-connected-battery": "\n{device_battery_percentage}%",
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
