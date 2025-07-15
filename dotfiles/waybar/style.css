@@ -53,6 +53,20 @@
   box-shadow: 5px 0px 10px -2px rgba(0, 0, 0, 0.55);
 }
 
+/* #clock#time{ */
+/*   font-size: 24px; */
+/*   font-weight: bold; */
+/*   background-color: rgba(0, 0, 0, 0); */
+/*   color: #f0f0f0; */
+/* } */
+/**/
+/* #clock#date{ */
+/*   font-size: 16px; */
+/*   font-weight: bold; */
+/*   background-color: rgba(0, 0, 0, 0); */
+/*   color: #f0f0f0; */
+/* } */
+
 #clock{
   font-size: 14px;
   font-weight: bold;

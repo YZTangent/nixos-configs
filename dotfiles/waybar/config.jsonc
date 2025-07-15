@@ -9,6 +9,8 @@
     "tray"
   ],
   "modules-center": [
+    // "clock#time",
+    // "clock#date"
     "clock"
   ],
   "modules-right": [
@@ -127,6 +129,22 @@
     "tooltip-format": "<big>{:%A %d %h %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "justify": "center"
   },
+  // "clock#time": {
+  //   "interval": 1,
+  //   "timezone": "Asia/Singapore",
+  //   "format": "{:%H\n%M}",
+  //   "tooltip": true,
+  //   "tooltip-format": "<big>{:%A %d %h %Y}</big>\n<tt><small>{calendar}</small></tt>",
+  //   "justify": "center"
+  // },
+  // "clock#date": {
+  //   "interval": 1,
+  //   "timezone": "Asia/Singapore",
+  //   "format": "{:%d\n%b\n%a}",
+  //   "tooltip": true,
+  //   "tooltip-format": "<big>{:%A %d %h %Y}</big>\n<tt><small>{calendar}</small></tt>",
+  //   "justify": "center"
+  // },
   "tray": {
     "icon-size": 17,
     "spacing": 6
