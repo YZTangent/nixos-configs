@@ -124,7 +124,7 @@
   "clock": {
     "interval": 1,
     "timezone": "Asia/Singapore",
-    "format": "\n{:%H%M\n\n%h\n%d}th",
+    "format": "{:%H:%M\n\n%h\n%d}th",
     "tooltip": true,
     "tooltip-format": "<big>{:%A %d %h %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "justify": "center"

@@ -119,6 +119,10 @@
     cmake
     fzf
     ripgrep
+
+    # Languages
+    rustup
+    go
   ];
 
   programs.nix-ld.enable = true;

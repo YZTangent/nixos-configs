@@ -2,8 +2,8 @@
 
 {
   # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "yztangent";
+  # manage.
   home.homeDirectory = "/home/yztangent";
 
   imports = [
@@ -67,15 +67,16 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
-    ".config/niri" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/niri;
-      recursive = true;
-    };
-
-    ".config/waybar" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/waybar;
-      recursive = true;
-    };
+    # # Moved dotfiles back to dotfiles repo and stow
+    # ".config/niri" = {
+    #   source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/niri;
+    #   recursive = true;
+    # };
+    #
+    # ".config/waybar" = {
+    #   source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/waybar;
+    #   recursive = true;
+    # };
 
 
     # # You can also set the file content immediately.
