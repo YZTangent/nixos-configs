@@ -4,8 +4,16 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
+      # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -24,7 +32,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.yztangent = import ./home.nix;
-	    home-manager.backupFileExtension = "backup";
+	          home-manager.backupFileExtension = "backup";
 
             # This makes the flake's inputs available to home.nix and its modules
             home-manager.extraSpecialArgs = { inherit inputs; };

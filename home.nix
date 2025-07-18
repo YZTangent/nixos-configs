@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs,... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -44,6 +44,13 @@
 
     # Wallpaper
     swaybg
+
+    # Zen browser
+    (
+      inputs.zen-browser.packages."${system}".default.override {
+        nativeMessagingHosts = [pkgs.firefoxpwa];
+      }
+    )
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
