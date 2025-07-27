@@ -119,10 +119,14 @@
     cmake
     fzf
     ripgrep
+    fd
 
     # Languages
     rustup
     go
+
+    # Other stuff
+    unzip # Needed by Mason for some LSPs
   ];
 
   programs.nix-ld.enable = true;
