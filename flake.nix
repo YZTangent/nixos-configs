@@ -37,6 +37,7 @@
             # This makes the flake's inputs available to home.nix and its modules
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
+          (nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
         ];
       };
     };
