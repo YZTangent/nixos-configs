@@ -42,6 +42,23 @@
     LC_TIME = "en_SG.UTF-8";
   };
 
+
+  # 1. Enable Fcitx5 Input Method Editor
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-rime          # Powerful Rime input engine
+      fcitx5-chinese-addons  # Collection of Chinese input methods, including Pinyin
+      # fcitx5-sogou-pinyin # If you prefer Sogou, though it can be less stable
+    ];
+  };
+
+  # 2. Add fonts for Chinese characters for proper display
+  fonts.packages = with pkgs; [
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+  ];
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
