@@ -145,6 +145,7 @@
 
     # Other stuff
     unzip # Needed by Mason for some LSPs
+    xwayland-satellite # Needed by niri to run x applications
   ];
 
   programs.nix-ld.enable = true;
