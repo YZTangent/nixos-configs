@@ -140,7 +140,17 @@
     fd
 
     # Languages
+
+    # Rust
     rustup
+    # Adding just rustup to systemPackages results in me having to run `rustup default stable` imperatively. Contemplating if I should add the below (normally managed by rustup directly into configs)
+    # cargo 
+    # rustc
+    # clippy
+    # rust-std
+    # rustfmt
+    # rust-docs
+
     go
 
     # Other stuff
