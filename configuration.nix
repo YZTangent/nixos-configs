@@ -5,11 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware/l13-hardware-configuration.nix
-      # ./hardware/x395-hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware/l13-hardware-configuration.nix
+    # ./hardware/x395-hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -43,22 +42,18 @@
     LC_TIME = "en_SG.UTF-8";
   };
 
-
   # 1. Enable Fcitx5 Input Method Editor
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
-      fcitx5-rime          # Powerful Rime input engine
-      fcitx5-chinese-addons  # Collection of Chinese input methods, including Pinyin
+      fcitx5-rime # Powerful Rime input engine
+      fcitx5-chinese-addons # Collection of Chinese input methods, including Pinyin
       # fcitx5-sogou-pinyin # If you prefer Sogou, though it can be less stable
     ];
   };
 
   # 2. Add fonts for Chinese characters for proper display
-  fonts.packages = with pkgs; [
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-  ];
+  fonts.packages = with pkgs; [ noto-fonts-cjk-sans noto-fonts-cjk-serif ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -95,14 +90,23 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # She cron on my job until I run
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "0 0 * * * ?      yztangent $HOME/Scripts/canvas/canvas-download-job.sh >> $HOME/Scripts/canvas/download_job.log"
+    ];
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.yztangent = {
     isNormalUser = true;
     description = "YZTangent";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    packages = with pkgs;
+      [
+        #  thunderbird
+      ];
     shell = pkgs.fish;
   };
 
@@ -123,7 +127,9 @@
   nixpkgs.config.allowUnfree = true;
 
   # Enable flakes and nix-command
-  nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  security.sudo.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -138,6 +144,7 @@
     fzf
     ripgrep
     fd
+    pkg-config
 
     # Languages
 
@@ -159,9 +166,7 @@
   ];
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    stdenv.cc.cc
-  ];
+  programs.nix-ld.libraries = with pkgs; [ stdenv.cc.cc ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
