@@ -94,7 +94,7 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "0 0 * * * ?      yztangent $HOME/Scripts/canvas/canvas-download-job.sh >> $HOME/Scripts/canvas/download_job.log"
+      "* * * * *      yztangent $HOME/Scripts/canvas/canvas-download-job.sh >> $HOME/Scripts/canvas/download_job.log"
     ];
   };
 
@@ -144,12 +144,11 @@
     fzf
     ripgrep
     fd
-    pkg-config
 
     # Languages
 
     # Rust
-    rustup
+    rustup # Need to run `rustup default stable` on first use
     # Adding just rustup to systemPackages results in me having to run `rustup default stable` imperatively. Contemplating if I should add the below (normally managed by rustup directly into configs)
     # cargo 
     # rustc
@@ -158,11 +157,20 @@
     # rustfmt
     # rust-docs
 
+    # Golang
     go
 
     # Other stuff
     unzip # Needed by Mason for some LSPs
+    pkg-config # Also needed by Mason for some LSPs
     xwayland-satellite # Needed by niri to run x applications
+
+    #Vibes
+    gemini-cli
+    claude-code
+
+    # Onedrive syncing
+    onedriver
   ];
 
   programs.nix-ld.enable = true;

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs,... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -18,7 +18,7 @@
     ./modules/swaylock.nix
     ./modules/zoxide.nix
   ];
-  
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -45,11 +45,11 @@
     swaybg
 
     # Zen browser
-    (
-      inputs.zen-browser.packages."${system}".default.override {
-        nativeMessagingHosts = [pkgs.firefoxpwa];
-      }
-    )
+    (inputs.zen-browser.packages."${system}".default.override {
+      nativeMessagingHosts = [ pkgs.firefoxpwa ];
+    })
+
+    onedriver
 
     code-cursor
 
@@ -86,7 +86,6 @@
     #   recursive = true;
     # };
 
-
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
@@ -110,9 +109,7 @@
   #
   #  /etc/profiles/per-user/yztangent/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
