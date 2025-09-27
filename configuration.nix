@@ -64,7 +64,7 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "jp";
+    layout = "us";
     variant = "";
   };
 
@@ -102,7 +102,7 @@
   users.users.yztangent = {
     isNormalUser = true;
     description = "YZTangent";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     packages = with pkgs;
       [
         #  thunderbird
@@ -144,6 +144,7 @@
     fzf
     ripgrep
     fd
+    wl-clipboard
 
     # Languages
 
