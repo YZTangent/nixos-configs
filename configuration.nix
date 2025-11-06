@@ -27,30 +27,30 @@
   # Set your time zone.
   time.timeZone = "Asia/Singapore";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_SG.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_SG.UTF-8";
-    LC_IDENTIFICATION = "en_SG.UTF-8";
-    LC_MEASUREMENT = "en_SG.UTF-8";
-    LC_MONETARY = "en_SG.UTF-8";
-    LC_NAME = "en_SG.UTF-8";
-    LC_NUMERIC = "en_SG.UTF-8";
-    LC_PAPER = "en_SG.UTF-8";
-    LC_TELEPHONE = "en_SG.UTF-8";
-    LC_TIME = "en_SG.UTF-8";
-  };
-
-  # 1. Enable Fcitx5 Input Method Editor
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-rime # Powerful Rime input engine
-      fcitx5-chinese-addons # Collection of Chinese input methods, including Pinyin
-      # fcitx5-sogou-pinyin # If you prefer Sogou, though it can be less stable
-    ];
-  };
+  # # Select internationalisation properties.
+  # i18n.defaultLocale = "en_SG.UTF-8";
+  #
+  # i18n.extraLocaleSettings = {
+  #   LC_ADDRESS = "en_SG.UTF-8";
+  #   LC_IDENTIFICATION = "en_SG.UTF-8";
+  #   LC_MEASUREMENT = "en_SG.UTF-8";
+  #   LC_MONETARY = "en_SG.UTF-8";
+  #   LC_NAME = "en_SG.UTF-8";
+  #   LC_NUMERIC = "en_SG.UTF-8";
+  #   LC_PAPER = "en_SG.UTF-8";
+  #   LC_TELEPHONE = "en_SG.UTF-8";
+  #   LC_TIME = "en_SG.UTF-8";
+  # };
+  #
+  # # 1. Enable Fcitx5 Input Method Editor
+  # i18n.inputMethod = {
+  #   enabled = "fcitx5";
+  #   fcitx5.addons = with pkgs; [
+  #     fcitx5-rime # Powerful Rime input engine
+  #     fcitx5-chinese-addons # Collection of Chinese input methods, including Pinyin
+  #     # fcitx5-sogou-pinyin # If you prefer Sogou, though it can be less stable
+  #   ];
+  # };
 
   # 2. Add fonts for Chinese characters for proper display
   fonts.packages = with pkgs; [ noto-fonts-cjk-sans noto-fonts-cjk-serif ];
@@ -102,7 +102,7 @@
   users.users.yztangent = {
     isNormalUser = true;
     description = "YZTangent";
-    extraGroups = [ "networkmanager" "wheel" "dialout" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" "docker" ];
     packages = with pkgs;
       [
         #  thunderbird
@@ -130,6 +130,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   security.sudo.enable = true;
+
+  virtualisation.docker.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -172,6 +174,8 @@
 
     # Onedrive syncing
     onedriver
+
+    docker-compose
   ];
 
   programs.nix-ld.enable = true;
