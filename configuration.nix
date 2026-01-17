@@ -148,6 +148,8 @@
     fd
     wl-clipboard
 
+    godot
+
     # Languages
 
     # Rust
@@ -171,6 +173,7 @@
     #Vibes
     gemini-cli
     claude-code
+    code-cursor
 
     # Onedrive syncing
     onedriver
