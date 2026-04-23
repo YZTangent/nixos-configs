@@ -12,6 +12,11 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  # Fix for cursor disappearing after suspend/resume on Intel TigerLake-LP (Iris Xe)
+  # Disables Panel Self Refresh (PSR) which causes cursor issues after suspend
+  # See: https://discourse.nixos.org/t/i915-driver-has-bug-for-iris-xe-graphics/25006/12
+  boot.kernelParams = [ "i915.enable_psr=0" ];
+
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/bbed463c-0755-4a6e-b1e5-38408f5a1b70";
     fsType = "ext4";
