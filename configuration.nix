@@ -6,7 +6,7 @@
 
 {
   imports = [ # Include the results of the hardware scan.
-    ./hardware/l13-hardware-configuration.nix
+    ./hardware/legion-hardware-configuration.nix
     # ./hardware/x395-hardware-configuration.nix
   ];
 
