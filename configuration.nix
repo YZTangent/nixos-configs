@@ -16,6 +16,7 @@
     enable = true;
     device = "nodev";
     efiSupport = true;
+    useOSProber = true;
 
     # Minegrub theme
     minegrub-theme = {
