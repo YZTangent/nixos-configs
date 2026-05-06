@@ -26,6 +26,11 @@ set -U fish_color_error red --bold
 # Disable greeting
 set fish_greeting
 
+# Vim mode
+function fish_user_key_bindings
+    fish_vi_key_bindings
+end
+
 # Shell abbreviations
 abbr ls eza
 abbr ll eza -l
@@ -36,3 +41,4 @@ abbr fpaste fish_clipboard_paste
 
 # Starship prompt
 starship init fish | source
+zoxide init fish | source
