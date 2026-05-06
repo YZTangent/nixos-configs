@@ -1,0 +1,7 @@
+[user]
+	name = YZTangent
+	email = yuanzheng.tan.tyz@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim

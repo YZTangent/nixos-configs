@@ -100,6 +100,34 @@ input {
     position x=1280 y=0
 }
 
+output "eDP-1" {
+    // Resolution and, optionally, refresh rate of the output.
+    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
+    // If the refresh rate is omitted, niri will pick the highest refresh rate
+    // for the resolution.
+    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
+    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
+    mode "2560x1600@165.019"
+
+    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
+    scale 1.5
+
+    // Transform allows to rotate the output counter-clockwise, valid values are:
+    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
+    transform "normal"
+
+    // Position of the output in the global coordinate space.
+    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
+    // The cursor can only move between directly adjacent outputs.
+    // Output scale and rotation has to be taken into account for positioning:
+    // outputs are sized in logical, or scaled, pixels.
+    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
+    // so to put another output directly adjacent to it on the right, set its x to 1920.
+    // If the position is unset or results in an overlap, the output is instead placed
+    // automatically.
+    position x=0 y=0
+}
+
 cursor {
     xcursor-theme "breeze_cursors"
     xcursor-size 24
@@ -265,6 +293,12 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-at-startup "swaybg" "-i" "/home/yztangent/.config/niri/wallpapers/purplecreek.png" "-m" "fill"
+spawn-at-startup "./note.sh"
+spawn-at-startup "xwayland-satellite" ":7" // xwayland support
+
+environment {
+    DISPLAY ":7"
+}
 
 hotkey-overlay{
   skip-at-startup
@@ -360,7 +394,8 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+N hotkey-overlay-title="Open notes" { spawn "~/.config/niri/note.sh"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
@@ -368,17 +403,19 @@ binds {
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioRaiseVolume   allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume   allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute          allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute       allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86MonBrightnessUp    allow-when-locked=true { spawn "brightnessctl" "set" "+10%"; }
+    XF86MonBrightnessDown  allow-when-locked=true { spawn "brightnessctl" "set" "10%-"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
     Mod+P repeat=false { toggle-overview; }
 
-    Mod+Q { close-window; }
+    Mod+Shift+Q { close-window; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-or-workspace-down; }
@@ -424,23 +461,23 @@ binds {
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
     
-    // Mod+Shift+Left  { focus-monitor-left; }
-    // Mod+Shift+Down  { focus-monitor-down; }
-    // Mod+Shift+Up    { focus-monitor-up; }
-    // Mod+Shift+Right { focus-monitor-right; }
-    // Mod+Shift+H     { focus-monitor-left; }
-    // Mod+Shift+J     { focus-monitor-down; }
-    // Mod+Shift+K     { focus-monitor-up; }
-    // Mod+Shift+L     { focus-monitor-right; }
+    Mod+Alt+Left  { focus-monitor-left; }
+    Mod+Alt+Down  { focus-monitor-down; }
+    Mod+Alt+Up    { focus-monitor-up; }
+    Mod+Alt+Right { focus-monitor-right; }
+    Mod+Alt+J     { focus-monitor-left; }
+    Mod+Alt+K     { focus-monitor-down; }
+    Mod+Alt+I     { focus-monitor-up; }
+    Mod+Alt+L     { focus-monitor-right; }
 
-    // Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-    // Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-    // Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-    // Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    // Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    // Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    // Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    // Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    Mod+Shift+Alt+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Alt+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Alt+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Alt+Right { move-column-to-monitor-right; }
+    Mod+Shift+Alt+H     { move-column-to-monitor-left; }
+    Mod+Shift+Alt+J     { move-column-to-monitor-down; }
+    Mod+Shift+Alt+K     { move-column-to-monitor-up; }
+    Mod+Shift+Alt+L     { move-column-to-monitor-right; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
@@ -508,15 +545,17 @@ binds {
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
+    //
+    Mod+1 { focus-workspace "note"; }
+    Mod+2 { focus-workspace "code"; }
+    Mod+3 { focus-workspace "browser"; }
+    Mod+4 { focus-workspace "chat"; }
     Mod+5 { focus-workspace 5; }
     Mod+6 { focus-workspace 6; }
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 0; }
     Mod+Ctrl+1 { move-column-to-workspace 1; }
     Mod+Ctrl+2 { move-column-to-workspace 2; }
     Mod+Ctrl+3 { move-column-to-workspace 3; }
@@ -612,4 +651,44 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+}
+
+workspace "note"
+workspace "code"
+workspace "browser"
+workspace "chat"
+
+window-rule {
+  match app-id="Alacritty"
+  open-maximized true
+}
+
+window-rule {
+  match title="nvim /home/yztangent ~" app-id="Alacritty" at-startup=true
+
+  open-on-workspace "note"
+  open-maximized true
+}
+
+window-rule {
+  match app-id="zen-beta"
+  open-on-workspace "browser"
+  open-maximized true
+}
+
+window-rule {
+  match app-id="org.telegram.desktop"
+  open-on-workspace "chat"
+  open-maximized true
+}
+
+window-rule {
+  match app-id="discord"
+  open-on-workspace "chat"
+}
+
+window-rule {
+  match app-id="Cursor"
+  open-on-workspace "code"
+  open-maximized true
 }
