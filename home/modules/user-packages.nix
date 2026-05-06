@@ -8,6 +8,9 @@
     swaybg
     starship
     btop
+    alacritty
+    waybar
+    swaylock
     (inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default.override {
       nativeMessagingHosts = [ pkgs.firefoxpwa ];
     })
