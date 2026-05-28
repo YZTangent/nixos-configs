@@ -1,0 +1,9 @@
+font-family = JetBrainsMono Nerd Font
+font-size = 9.5
+background-opacity = 0.6
+window-decoration = false
+window-padding-color = extend
+window-theme = dark
+theme = Afterglow
+
+resize-overlay = never

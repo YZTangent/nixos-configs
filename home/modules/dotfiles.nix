@@ -33,6 +33,11 @@ in
     recursive = true;
   };
 
+  home.file.".config/ghostty" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/ghostty";
+    recursive = true;
+  };
+
   home.file.".config/btop" = {
     source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/btop";
     recursive = true;
