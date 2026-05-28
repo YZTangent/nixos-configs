@@ -23,6 +23,9 @@ set -U fish_color_user FFA759
 set -U fish_color_command green --bold
 set -U fish_color_error red --bold
 
+# allow nixos unfree
+set -gx NIXPKGS_ALLOW_UNFREE 1
+
 # Disable greeting
 set fish_greeting
 
