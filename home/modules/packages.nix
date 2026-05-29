@@ -20,7 +20,7 @@ let
   shell = with pkgs; [ starship btop ];
 
   # AI assistants
-  ai = with pkgs; [ gemini-cli claude-code opencode ];
+  ai = with pkgs; [ gemini-cli claude-code opencode lmstudio ];
 
   # CAD
   cad = with pkgs; [ openscad ];
@@ -41,7 +41,8 @@ in
     rust ++ go ++ c_cpp ++ gamedev ++
     ai ++
     cad ++
-    browsers;
+    browsers ++
+    [ inputs.llm-agents.packages."${pkgs.stdenv.hostPlatform.system}".antigravity ];
 
   programs.eza.enable = true;
   programs.zoxide.enable = true;

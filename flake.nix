@@ -18,6 +18,11 @@
       url = "github:Lxtharia/minegrub-theme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
