@@ -1,6 +1,8 @@
 { ... }:
 
 {
+  networking.hostName = "legion";
+
   imports = [
     ./default.nix
     ../hardware/legion-hardware-configuration.nix

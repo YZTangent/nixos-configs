@@ -1,13 +1,17 @@
-{ config, ... }:
+{ config, lib, hostName, ... }:
 
 let
   dotfilesDir = "/home/yztangent/.home/dotfiles";
 in
 {
-  home.file.".config/niri" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/niri";
-    recursive = true;
-  };
+  home.file.".config/niri" =
+    if hostName == "l13" then {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/niri-l13";
+      recursive = true;
+    } else {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/niri";
+      recursive = true;
+    };
 
   home.file.".config/waybar" = {
     source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/waybar";

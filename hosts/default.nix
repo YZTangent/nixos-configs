@@ -19,7 +19,7 @@ in
       home-manager.useUserPackages = true;
       home-manager.users.yztangent = import ../home;
       home-manager.backupFileExtension = "backup";
-      home-manager.extraSpecialArgs = { inherit inputs; };
+      home-manager.extraSpecialArgs = { inherit inputs; hostName = config.networking.hostName; };
     }
   ];
 
