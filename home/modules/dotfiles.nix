@@ -50,4 +50,9 @@ in
   home.file.".config/fish/config.fish" = {
     source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/fish/config.fish";
   };
+
+  home.file.".config/opencode" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/opencode";
+    recursive = true;
+  };
 }

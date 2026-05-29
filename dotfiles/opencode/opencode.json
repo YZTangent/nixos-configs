@@ -1,0 +1,39 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
+  "skills": {
+    "paths": ["/home/yztangent/.config/opencode/skills"]
+  },
+  "instructions": ["/home/yztangent/.config/opencode/instructions/OPENCODE.md"],
+  "permission": {
+    "bash": {
+      "*": "ask",
+      "git *": "allow",
+      "git commit *": "ask",
+      "git push *": "ask",
+      "git restore *": "ask",
+      "git reset *": "ask",
+      "git revert *": "ask",
+      "grep *": "allow"
+    },
+    "external_directory": {
+      "$HOME/.config/opencode/": "allow"
+    },
+    "edit": {
+      "$HOME/.config/opencode/": "deny"
+    }
+  },
+  "provider": {
+    "lmstudio": {
+      "name": "LM Studio (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:1234/v1"
+      },
+      "models": {
+        "google/gemma-4-e4b": {
+          "name": "Gemma 4 E4B"
+        }
+      }
+    }
+  }
+}
