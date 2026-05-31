@@ -20,7 +20,30 @@ let
   shell = with pkgs; [ starship btop ];
 
   # AI assistants
-  ai = with pkgs; [ gemini-cli claude-code opencode lmstudio ];
+  ai = with pkgs; [ 
+    gemini-cli 
+    claude-code 
+    opencode 
+    lmstudio 
+  ];
+
+  ai-llm-agents = with inputs.llm-agents.packages."${pkgs.stdenv.hostPlatform.system}"; [
+    antigravity
+    pi
+  ];
+
+  # AI agent tools
+  code-memory = with inputs.llm-agents.packages."${pkgs.stdenv.hostPlatform.system}"; [
+    gitnexus
+    codegraph
+  ];
+
+  # AI agent tools
+  ai-tools = with inputs.llm-agents.packages."${pkgs.stdenv.hostPlatform.system}"; [
+    vibe-kanban
+    ccusage
+  ];
+
 
   # CAD
   cad = with pkgs; [ openscad ];
@@ -39,10 +62,12 @@ in
     messaging ++
     shell ++
     rust ++ go ++ c_cpp ++ gamedev ++
-    ai ++
     cad ++
     browsers ++
-    [ inputs.llm-agents.packages."${pkgs.stdenv.hostPlatform.system}".antigravity ];
+    ai ++
+    ai-llm-agents ++
+    ai-tools ++
+    code-memory;
 
   programs.eza.enable = true;
   programs.zoxide.enable = true;
