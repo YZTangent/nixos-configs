@@ -1,10 +1,13 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
   "skills": {
-    "paths": ["/home/yztangent/.config/opencode/skills"]
+    "paths": [
+      "/home/yztangent/.config/opencode/skills"
+    ]
   },
-  "instructions": ["/home/yztangent/.config/opencode/instructions/OPENCODE.md"],
+  "instructions": [
+    "/home/yztangent/.config/opencode/instructions/OPENCODE.md"
+  ],
   "permission": {
     "bash": {
       "*": "ask",
@@ -33,6 +36,16 @@
         "google/gemma-4-e4b": {
           "name": "Gemma 4 E4B"
         }
+      }
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true,
+      "headers": {
+        "CONTEXT7_API_KEY": "ctx7sk-cb6fc201-55c4-4ee3-b7ab-0797b913b4a6"
       }
     }
   }

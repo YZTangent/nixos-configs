@@ -55,4 +55,14 @@ in
     source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/opencode";
     recursive = true;
   };
+
+  home.file.".claude/skills" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/skills";
+    recursive = true;
+  };
+
+  home.file.".agents/skills" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/skills";
+    recursive = true;
+  };
 }
