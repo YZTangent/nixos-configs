@@ -7,3 +7,4 @@ window-theme = dark
 theme = Afterglow
 
 resize-overlay = never
+confirm-close-surface = false
