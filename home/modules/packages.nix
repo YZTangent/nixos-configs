@@ -40,13 +40,20 @@ let
 
   # AI agent tools
   ai-tools = with inputs.llm-agents.packages."${pkgs.stdenv.hostPlatform.system}"; [
-    vibe-kanban
     ccusage
   ];
 
 
   # CAD
-  cad = with pkgs; [ openscad ];
+  cad = with pkgs; [
+    openscad
+    (orca-slicer.overrideAttrs (old: {
+      nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
+      postInstall = (old.postInstall or "") + ''
+        wrapProgram $out/bin/orca-slicer --set GBM_BACKEND dri
+      '';
+    }))
+  ];
 
   # Browsers
   browsers = [
