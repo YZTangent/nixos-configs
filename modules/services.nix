@@ -27,4 +27,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  # VPN
+  services.mullvad-vpn.enable = true;
 }
