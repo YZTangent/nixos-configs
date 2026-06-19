@@ -391,7 +391,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+N hotkey-overlay-title="Open notes" { spawn "~/.config/niri/note.sh"; }
@@ -658,7 +658,7 @@ workspace "browser"
 workspace "chat"
 
 window-rule {
-  match app-id="Alacritty"
+  match app-id="Ghostty"
   open-maximized true
 }
 
