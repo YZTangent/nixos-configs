@@ -1,7 +1,19 @@
-## Docs directory conventions
+# Docs directory conventions
 
-- **PRD documents** (including output from `superpower:brainstorming`) go into `docs/prd/`
-  - `superpower:brainstorming` output is a PRD — save it to `docs/prd/` using the naming convention `YYYY-MM-DD-<topic>.md`.
-- **Design documents** go into `docs/design/`
-  - Designs derived from PRDs MUST use the same name as the PRD it is derived from, and save it to `docs/design/`.
-- **Architecture Decision Records** go into `docs/adr/`
+## Doc Layout
+
+```
+docs/
+  spec/                         # Living project description (how the project SHOULD be)
+    architecture.md             # Read these for context
+    data-model.md               # before brainstorming
+    ...
+
+  changes/                      # Per-change artifacts (timestamped)
+    YYYY-MM-DD-<topic>-requirement.md   # This skill's output
+    YYYY-MM-DD-<topic>-plan.md        # writing-plans output
+
+  adr/                          # Hard-to-reverse decisions (read these for context)
+```
+
+
