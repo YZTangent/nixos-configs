@@ -47,12 +47,12 @@ let
   # CAD
   cad = with pkgs; [
     openscad
-    (orca-slicer.overrideAttrs (old: {
-      nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
-      postInstall = (old.postInstall or "") + ''
-        wrapProgram $out/bin/orca-slicer --set GBM_BACKEND dri
-      '';
-    }))
+    # (orca-slicer.overrideAttrs (old: {
+    #   nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
+    #   postInstall = (old.postInstall or "") + ''
+    #     wrapProgram $out/bin/orca-slicer --set GBM_BACKEND dri
+    #   '';
+    # }))
   ];
 
   # Browsers
