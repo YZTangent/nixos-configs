@@ -60,13 +60,13 @@ in
     recursive = true;
   };
 
-  home.file.".claude/skills" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/skills";
+  home.file.".agents" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/agents";
     recursive = true;
   };
 
-  home.file.".agents/skills" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/skills";
+  home.file.".claude" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/claude";
     recursive = true;
   };
 }

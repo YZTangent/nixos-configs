@@ -10,7 +10,7 @@
   ],
   "permission": {
     "bash": {
-      "*": "ask",
+      "*": "allow",
       "git *": "allow",
       "git commit *": "ask",
       "git push *": "ask",

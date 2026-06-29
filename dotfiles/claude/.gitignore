@@ -1,0 +1,9 @@
+# Ignore everything Claude Code writes at runtime (history, sessions, cache, etc.)
+*
+
+# Managed dotfiles — whitelist explicitly
+!.gitignore
+!CLAUDE.md
+!settings.json
+!statusline-command.sh
+!skills
