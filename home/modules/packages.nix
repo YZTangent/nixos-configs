@@ -30,12 +30,13 @@ let
   ai-llm-agents = with inputs.llm-agents.packages."${pkgs.stdenv.hostPlatform.system}"; [
     antigravity
     pi
+    omp
   ];
 
   # AI agent tools
   code-memory = with inputs.llm-agents.packages."${pkgs.stdenv.hostPlatform.system}"; [
-    gitnexus
-    codegraph
+    # gitnexus
+    # codegraph
   ];
 
   # AI agent tools
@@ -46,7 +47,7 @@ let
 
   # CAD
   cad = with pkgs; [
-    openscad
+    # openscad
     # (orca-slicer.overrideAttrs (old: {
     #   nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
     #   postInstall = (old.postInstall or "") + ''
