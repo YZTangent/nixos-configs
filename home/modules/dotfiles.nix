@@ -69,4 +69,9 @@ in
     source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/claude";
     recursive = true;
   };
+
+  home.file.".gemini" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/gemini";
+    recursive = true;
+  };
 }

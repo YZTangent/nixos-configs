@@ -1,0 +1,10 @@
+# Ignore everything Antigravity writes at runtime
+*
+
+# Managed dotfiles — whitelist explicitly
+!*/
+!.gitignore
+!antigravity-cli/settings.json
+!antigravity-cli/statusline-command.sh
+!config/skills
+!config/AGENTS.md

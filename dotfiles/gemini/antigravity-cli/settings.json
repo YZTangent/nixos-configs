@@ -1,0 +1,18 @@
+{
+  "colorScheme": "dark",
+  "enableTelemetry": false,
+  "model": "Gemini 3.1 Pro (High)",
+  "permissions": {
+    "ask": [
+      "command(git push)"
+    ]
+  },
+  "statusLine": {
+    "type": "",
+    "command": "/home/yztangent/.gemini/antigravity-cli/statusline-command.sh"
+  },
+  "toolPermission": "always-proceed",
+  "trustedWorkspaces": [
+    "/home/yztangent/.home"
+  ]
+}

@@ -28,7 +28,7 @@ let
   ];
 
   ai-llm-agents = with inputs.llm-agents.packages."${pkgs.stdenv.hostPlatform.system}"; [
-    antigravity
+    antigravity-cli
     pi
     omp
   ];
