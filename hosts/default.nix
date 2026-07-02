@@ -10,7 +10,8 @@ in
     ../modules/services.nix
     ../modules/daemons.nix
     ../modules/docker.nix
-    ../modules/packages.nix
+    ../modules/common-packages.nix
+    ../modules/linux-packages.nix
     ../modules/user.nix
     inputs.minegrub-theme.nixosModules.default
     inputs.home-manager.nixosModules.home-manager
