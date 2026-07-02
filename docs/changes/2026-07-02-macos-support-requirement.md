@@ -33,7 +33,12 @@ We will split the system-level modules to isolate Linux/NixOS concepts from macO
 - The existing `home/default.nix` will be imported by both NixOS and Darwin configurations.
 - Dotfiles management (symlinking `~/.home/dotfiles/` to `~/.config/`) will remain unified.
 
-## 4. Scope of Work
+## 4. Deployment & Invocation
+- **macOS Build**: Because `nixos-rebuild` is Linux-only, macOS systems managed by `nix-darwin` use the `darwin-rebuild` command.
+  - Command: `darwin-rebuild switch --flake .#macbook`
+- **Home Manager**: Home Manager is implemented as a *module* within `nix-darwin` (just as it is in your NixOS config). You do **not** need to run `home-manager switch` separately. Running `darwin-rebuild` will automatically build and link both your system configuration and your Home Manager dotfiles at the same time.
+
+## 5. Scope of Work
 - [ ] Refactor `modules/packages.nix` into `common-packages.nix` and `linux-packages.nix`.
 - [ ] Update `hosts/default.nix` to use the refactored package modules.
 - [ ] Create `hosts/macbook.nix` with a baseline `nix-darwin` configuration.
