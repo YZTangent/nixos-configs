@@ -1,4 +1,5 @@
 {
+  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "bash /home/yztangent/.claude/statusline-command.sh"
@@ -7,7 +8,8 @@
     "rust-analyzer-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
   "editorMode": "vim",
-  "verbose": true,
-  "tui": "fullscreen"
+  "verbose": true
 }

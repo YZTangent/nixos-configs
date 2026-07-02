@@ -8,6 +8,7 @@ WEEKLY_LIMIT=250
 input=$(cat)
 
 cwd=$(echo "$input" | jq -r '.workspace.current_dir // .cwd // ""')
+model_name=$(echo "$input" | jq -r '.model.display_name // ""')
 used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // 0')
 window_size=$(echo "$input" | jq -r '.context_window.context_window_size // 0')
 
@@ -76,6 +77,7 @@ wk_color=$(color_for_pct "$week_pct")
 window_k=$(( window_size / 1000 ))
 
 out=""
+[ -n "$model_name" ] && out+="$(printf "${DIM}[%s]${RESET}" "$model_name")$SEP"
 out+="$(printf "${CYAN}${BOLD}%s${RESET}" "$cwd_display")"
 [ -n "$git_branch" ] && out+=" $(printf "${YELLOW}(%s)${RESET}" "$git_branch")"
 
