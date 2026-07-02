@@ -1,7 +1,7 @@
 { config, lib, hostName, ... }:
 
 let
-  dotfilesDir = "/home/yztangent/.home/dotfiles";
+  dotfilesDir = "${config.home.homeDirectory}/.home/dotfiles";
 in
 {
   home.file.".config/niri" =

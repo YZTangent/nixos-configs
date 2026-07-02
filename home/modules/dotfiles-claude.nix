@@ -74,7 +74,7 @@
 { config, lib, ... }:
 
 let
-  dotfilesDir = "/home/yztangent/.home/dotfiles";
+  dotfilesDir = "${config.home.homeDirectory}/.home/dotfiles";
 
   mkDirLinks = src: dest:
     lib.mapAttrs'

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  wayland = [ pkgs.xwayland-satellite pkgs.wl-clipboard ];
+  wayland = with pkgs; [ xwayland-satellite wl-clipboard ];
 in
 {
   security.sudo.enable = true;
