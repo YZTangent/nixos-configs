@@ -42,6 +42,12 @@ abbr v nvim
 abbr fcopy fish_clipboard_copy
 abbr fpaste fish_clipboard_paste
 
+# I have fucking dyslexia
+abbr gs git status
+abbr gl git log --oneline
+abbr gla git log --oneline --all --graph
+abbr gc git commit
+
 # Starship prompt
 starship init fish | source
 zoxide init fish | source
