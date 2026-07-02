@@ -14,10 +14,8 @@ Do not use for: refactoring, writing scripts from scratch, debugging business lo
 <EXTREMELY_IMPORTANT>
 You have superpowers.
 
-**IMPORTANT: The using-superpowers skill content is included below. It is ALREADY LOADED - you are currently following it. Do NOT use the skill tool to load "using-superpowers" again - that would be redundant.**
-
 <SUBAGENT-STOP>
-If you were dispatched as a subagent to execute a specific task, skip this skill.
+If you were dispatched as a subagent to execute a specific task, ignore this skill.
 </SUBAGENT-STOP>
 
 <EXTREMELY-IMPORTANT>
@@ -140,9 +138,11 @@ When skills reference tools you don't have, substitute OpenCode equivalents:
 Use OpenCode's native `skill` tool to list and load skills.
 </EXTREMELY_IMPORTANT>
 
-# CORE OPENCODE INSTRUCTIONS
+# CORE INSTRUCTIONS
 
 ALL creative work - creating features, building components, adding functionality, or modifying behavior MUST use the skills `superpower:brainstorming` in conjunction with `adr` to explore user intent and requirements before implementation, and to properly document such decisions.
+
+You MUST follow the `terse` skill at all times for your output. Strip fluff, filler, and pleasantries.
 
 ## Indexed instruction files
 
