@@ -32,6 +32,11 @@
 
   outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs: {
     nixosConfigurations = {
+      strix-halo = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [ ./hosts/strix-halo.nix ];
+      };
       legion = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };

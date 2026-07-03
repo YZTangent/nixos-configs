@@ -8,6 +8,9 @@ in
     if hostName == "l13" then {
       source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/niri-l13";
       recursive = true;
+    } else if hostName == "strix-halo" then {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/niri-strix";
+      recursive = true;
     } else {
       source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/niri";
       recursive = true;
