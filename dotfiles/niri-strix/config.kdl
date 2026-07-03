@@ -100,6 +100,20 @@ input {
     position x=1280 y=0
 }
 
+output "DP-1" {
+    mode "2560x1600@60.002"
+
+    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
+    scale 1.5
+}
+
+output "DP-2" {
+    mode "2560x1600@60.002"
+
+    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
+    scale 1.5
+}
+
 output "eDP-1" {
     // Resolution and, optionally, refresh rate of the output.
     // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
