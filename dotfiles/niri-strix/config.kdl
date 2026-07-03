@@ -114,6 +114,13 @@ output "DP-2" {
     scale 1.5
 }
 
+output "DP-3" {
+    mode "3840x1260@160.000"
+
+    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
+    scale 1.3
+}
+
 output "eDP-1" {
     // Resolution and, optionally, refresh rate of the output.
     // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
@@ -307,11 +314,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-at-startup "swaybg" "-i" "/home/yztangent/.config/niri/wallpapers/purplecreek.png" "-m" "fill"
-spawn-at-startup "xwayland-satellite" ":7" // xwayland support
-
-environment {
-    DISPLAY ":7"
-}
+// Removed manual xwayland-satellite spawning and DISPLAY override since niri handles Xwayland automatically.
 
 hotkey-overlay{
   skip-at-startup
