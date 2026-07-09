@@ -28,9 +28,19 @@
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-server = {
+      url = "github:yztangent/nixos-server";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, darwin, nixos-server, sops-nix, ... }@inputs: {
     nixosConfigurations = {
       strix-halo = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
