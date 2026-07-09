@@ -46,7 +46,7 @@
 
   sops = {
     defaultSopsFile = ../secrets/strix-halo.yaml;
-    age.keyFile = /home/yztangent/.ssh/sops-strix-halo;
+    age.keyFile = "/home/yztangent/.ssh/sops-strix-halo";
     secrets = {
       "k3s-token" = {};
       "k3s-vrrp-password" = {};
