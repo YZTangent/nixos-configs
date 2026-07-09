@@ -2,7 +2,8 @@
 *
 
 # Managed dotfiles — whitelist explicitly
-!*/
+!config/
+!antigravity-cli/
 !.gitignore
 !antigravity-cli/settings.json
 !antigravity-cli/statusline-command.sh
