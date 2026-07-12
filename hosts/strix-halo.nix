@@ -34,6 +34,10 @@
     };
   };
 
+  systemd.tmpfiles.rules = [
+    "d /var/lib/comfyui-models 2775 ${config.users.users.yztangent.name} users - -"
+  ];
+
   services.monitoring-agent.enable = true;
 
   services.nixos-server.cloudflare-tunnels = {
