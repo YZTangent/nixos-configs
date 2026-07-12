@@ -25,18 +25,14 @@
     enable = true;
     instances.chat = {
       port = 11434;
-      modelsDir = "/var/lib/llama-models";
-      extraArgs = [ "-ngl" "99" ];
+      modelsPreset = "/etc/llama-server/models.ini";
+      bindReadOnlyPaths = [
+        "/home/yztangent/.home/dotfiles/llama-server:/etc/llama-server"
+        "/home/yztangent/.lmstudio/models:/var/lib/llama-lmstudio"
+      ];
+      extraArgs = [ "-ngl" "999" "--no-mmap" ];
     };
   };
-
-  systemd.tmpfiles.rules = [
-    # Model directory for llama-cpp and LM-Studio
-    "d /var/lib/llama-models 2775 llama users - -"
-    # Model directory for comfyui
-    "d /var/lib/comfyui-models 2775 ${config.users.users.yztangent.name} users - -"
-  ];
-
 
   services.monitoring-agent.enable = true;
 
