@@ -20,6 +20,9 @@
     "/home/yztangent/code",
     "/home/yztangent/code/nixos-server",
     "/home/yztangent/code/loom",
-    "/home/yztangent"
+    "/home/yztangent",
+    "/home/yztangent/code/comfyui-nix",
+    "/home/yztangent/code/deer-flow-flake",
+    "/home/yztangent/code/scratchpad"
   ]
 }

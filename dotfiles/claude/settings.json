@@ -10,6 +10,7 @@
   "alwaysThinkingEnabled": true,
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
   "editorMode": "vim",
   "verbose": true
 }
