@@ -411,7 +411,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Mod+N hotkey-overlay-title="Open notes" { spawn "ghostty" "-e" "nvim /home/yztangent/Notes/TODO.md"; }
+    Mod+N hotkey-overlay-title="Open notes" { spawn "ghostty" "-e" "nvim" "/home/yztangent/Notes/TODO.md"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
@@ -676,12 +676,12 @@ workspace "browser"
 workspace "chat"
 
 window-rule {
-  match app-id="Ghostty"
-  open-maximized true
+  match app-id="com.mitchellh.ghostty"
+  default-column-width { proportion 0.33333; }
 }
 
 window-rule {
-  match title="nvim /home/yztangent ~" app-id="Ghostty" at-startup=true
+  match title="nvim /home/yztangent ~" app-id="com.mitchellh.ghostty" at-startup=true
 
   open-on-workspace "note"
   open-maximized true
