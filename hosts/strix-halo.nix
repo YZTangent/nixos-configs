@@ -61,7 +61,13 @@
     container.hostUsers = [ "yztangent" ];
     extraDependencyGroups = [ "messaging" ];
     environmentFiles = [ config.sops.secrets."hermes-env".path ];
-    settings = {};
+    settings = {
+      model = {
+        default = "Qwen3.6-35B";
+        provider = "custom";
+        base_url = "http://localhost:11434/v1";
+      };
+    };
     mcpServers = {};
     documents = {};
   };
