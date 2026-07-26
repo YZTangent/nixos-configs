@@ -34,13 +34,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hermes-agent = {
+      url = "github:NousResearch/hermes-agent";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, nixos-server, sops-nix, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, darwin, nixos-server, hermes-agent, sops-nix, ... }@inputs: {
     nixosConfigurations = {
       strix-halo = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
