@@ -1,9 +1,4 @@
 {
-  "env": {
-    "ANTHROPIC_AUTH_TOKEN": "sk-DLn6nzWBFFDRYRp07UlI6A",
-    "ANTHROPIC_BASE_URL": "https://llm-gateway.aisg.sg"
-  },
-  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "bash /home/yztangent/.claude/statusline-command.sh"

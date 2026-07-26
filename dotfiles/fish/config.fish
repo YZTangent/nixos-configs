@@ -42,6 +42,9 @@ abbr v nvim
 abbr fcopy fish_clipboard_copy
 abbr fpaste fish_clipboard_paste
 
+# Slopcannon
+abbr ccode claude --dangerously-skip-permissions
+
 # I have fucking dyslexia
 abbr gits git status
 abbr gitl git log --oneline
