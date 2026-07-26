@@ -13,6 +13,7 @@
     inputs.nixos-server.nixosModules.llama-server
     inputs.nixos-server.nixosModules.monitoring-agent
     inputs.nixos-server.nixosModules.cloudflare-tunnels
+    inputs.hermes-agent.nixosModules.default
   ];
 
   services.k3s-server = {
@@ -53,6 +54,18 @@
     };
   };
 
+  services.hermes-agent = {
+    enable = true;
+    container.enable = true;
+    container.backend = "docker";
+    container.hostUsers = [ "yztangent" ];
+    extraDependencyGroups = [ "messaging" ];
+    environmentFiles = [ config.sops.secrets."hermes-env".path ];
+    settings = {};
+    mcpServers = {};
+    documents = {};
+  };
+
   sops = {
     defaultSopsFile = ../secrets/strix-halo.yaml;
     age.keyFile = "/home/yztangent/.ssh/sops-strix-halo";
@@ -60,6 +73,10 @@
       "k3s-token" = {};
       "k3s-vrrp-password" = {};
       "cloudflared-credentials" = {};
+      "hermes-env" = {
+        format = "yaml";
+        sopsFile = ../secrets/strix-halo-hermes.yaml;
+      };
     };
   };
 }
