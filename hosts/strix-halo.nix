@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, inputs, ... }:
 
 {
   networking.hostName = "strix-halo";
@@ -13,6 +13,7 @@
     inputs.nixos-server.nixosModules.llama-server
     inputs.nixos-server.nixosModules.monitoring-agent
     inputs.nixos-server.nixosModules.cloudflare-tunnels
+    inputs.nixos-server.nixosModules.hermes-gateway
   ];
 
   services.k3s-server = {
@@ -32,6 +33,11 @@
       ];
       extraArgs = [ "-ngl" "999" "--no-mmap" ];
     };
+  };
+
+  services.hermes-gateway = {
+    enable = true;
+    hermesHome = "/home/yztangent/.hermes/";
   };
 
   systemd.tmpfiles.rules = [
