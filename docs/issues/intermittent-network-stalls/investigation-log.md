@@ -223,7 +223,8 @@ done
 ```
 
 Log location (live process still appends to the scratchpad copy; a
-snapshot as of 2026-07-21 is checked in at `docs/spike/logs/outage-episodes.log`
+snapshot as of 2026-07-21 is checked in at
+`docs/issues/intermittent-network-stalls/logs/outage-episodes.log`
 — **re-copy from the scratchpad path below before doing the A/B
 comparison**, since the checked-in copy predates the power-save toggle):
 ```
@@ -276,6 +277,20 @@ replicating the Issue 1 burst tests, since it reaches the router's
 throttle threshold faster than a single-record-type tool would.
 
 ---
+
+## Related: possible shared root cause with mouse cursor stutter
+
+2026-07-30: a separate investigation into severe cursor-stutter-only lag
+spikes (see [`../mouse-cursor-stutter.md`](../mouse-cursor-stutter.md))
+turned up a similar bursty, hundreds-of-ms-to-seconds, no-obvious-trigger
+signature. The mouse (USB HID via `xhci_hcd`) and WiFi (`mt7925e`) don't
+share a code path, so there's no direct mechanism by which one causes the
+other — but *if* some platform-level event (SMI storm, deep C-state
+wake latency, etc.) is briefly stalling the whole system, both would show
+up as independent symptoms of it. This is a slim, unconfirmed hypothesis,
+not a demonstrated link — noted here only so that whichever issue gets
+resolved first, the other should be re-checked for a change in symptom
+rate before concluding they're unrelated.
 
 ## Current open items
 
