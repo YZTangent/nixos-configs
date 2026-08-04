@@ -23,12 +23,12 @@ The user has asked you to teach them something. This is a stateful request - the
 To learn at a deep level, the user needs three things:
 
 - **Knowledge**, captured from high-quality, high-trust resources
-- **Skills**, acquired through highly-relevant interactive lessons devised by you, based on the knowledge
+- **Skills**, acquired through highly-relevant programming assignments devised by you, based on the knowledge
 - **Wisdom**, which comes from interacting with other learners and practitioners
 
 Before the `RESOURCES.md` is well-populated, your focus should be to find high-quality resources which will help the user acquire knowledge. Never trust your parametric knowledge.
 
-Some topics may require more skills than knowledge. Learning more about theoretical physics might be more knowledge-based. For yoga, more skills-based.
+Some topics may require more skills than knowledge. Learning the theory behind an algorithm might be more knowledge-based. Learning a new framework's idioms is more skills-based.
 
 ## Lessons
 
@@ -64,6 +64,8 @@ The user may specify an exact thing they want to learn. If they don't, figure ou
 - Figuring out the right thing to teach them based on their mission
 - Teach the most relevant thing that fits in their zone of proximal development
 
+Size the stub code and failing tests to match: enough missing that the user must think through the concept, not so much that they're guessing blind. A lesson that only requires filling in one expression is too easy; one that requires designing an entire module from nothing is too hard.
+
 ## Knowledge
 
 Lessons should be designed around a skill the user is going to learn. The knowledge in the lesson should be only what's required to acquire that skill. You teach the knowledge first, then get the user to practice the skills via an interactive feedback loop.
@@ -76,14 +78,9 @@ For acquiring knowledge, difficulty is the enemy. It eats working memory you nee
 
 If knowledge is all about acquisition, skills are about durability and flexibility. Make the knowledge stick.
 
-For skill acquisition, difficulty is the tool. Effortful retrieval is what builds storage strength. Skills should be taught through interactive lessons. There are several tools at your disposal:
+For skill acquisition, difficulty is the tool. Effortful retrieval is what builds storage strength. Skills are built through the assignment's feedback loop: the user edits the real project, runs the lesson's tests, and iterates.
 
-- Interactive lessons, using quizzes and light in-browser tasks
-- Lessons which guide the user through a list of real-world steps to take (for instance, yoga poses)
-
-Each of these should be based on a **feedback loop**, where the user receives feedback on their performance. This feedback loop should be as tight as possible, giving feedback immediately - and ideally automatically.
-
-For quizzes, each answer should be exactly the same number of words (and characters, if possible). Don't give the user any clues about the answer through formatting.
+This feedback loop should be as tight as possible. Encourage the user to run the tests often rather than writing the whole assignment before checking anything.
 
 ## Acquiring Wisdom
 
@@ -97,7 +94,7 @@ You should attempt to find high-reputation communities the user can join. If the
 
 ## Reference Documents
 
-While creating lessons, you should also create reference documents. Lessons can reference these documents - they are useful for tracking raw units of knowledge useful across lessons.
+While creating lessons, you should also create reference documents in `docs/learning/reference/*.md`. Lessons can reference these documents - they are useful for tracking raw units of knowledge useful across lessons.
 
 Lessons will rarely be revisited later - reference documents will be. They should be the compressed essence of the lesson, in a format designed for quick reference.
 
@@ -105,12 +102,10 @@ Some learning topics lend themselves to reference:
 
 - Syntax and code snippets for programming
 - Algorithms and flowcharts for processes
-- Yoga poses and sequences for yoga
-- Exercises and routines for fitness
 - Glossaries for any topic with its own nomenclature
 
 Glossaries, in particular, are an essential reference. Once one is created, it should be adhered to in every lesson.
 
-## `NOTES.md`
+## `docs/learning/NOTES.md`
 
 The user will sometimes express preferences of how they want to be taught, or things you should keep in mind. This is the place to record those preferences, so you can refer back to them when designing lessons or working with the user.
