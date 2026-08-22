@@ -29,14 +29,22 @@
       modelsPreset = "/etc/llama-server/models.ini";
       bindReadOnlyPaths = [
         "/home/yztangent/.home/dotfiles/llama-server:/etc/llama-server"
-        "/home/yztangent/.lmstudio/models:/var/lib/llama-lmstudio"
+        "/data/models/lmstudio:/var/lib/llama-lmstudio"
       ];
       extraArgs = [ "-ngl" "999" "--no-mmap" ];
     };
   };
 
+  # Secondary nvme mounted at /data. The root of a fresh ext4 fs is root-owned,
+  # so tmpfiles fixes ownership here (ext4 ignores uid=/gid= mount options).
+  # /data stays 0755 so service users like llama can traverse it read-only.
   systemd.tmpfiles.rules = [
-    "d /var/lib/comfyui-models 2775 ${config.users.users.yztangent.name} users - -"
+    "d /data 0755 ${config.users.users.yztangent.name} users - -"
+    "d /data/models 0755 ${config.users.users.yztangent.name} users - -"
+    "d /data/models/lmstudio 0755 ${config.users.users.yztangent.name} users - -"
+    # comfyui model cache lives on /data now; legacy path kept as a symlink
+    "d /data/models/comfyui 2775 ${config.users.users.yztangent.name} users - -"
+    "L /var/lib/comfyui-models - - - - /data/models/comfyui"
   ];
 
   services.monitoring-agent.enable = true;
