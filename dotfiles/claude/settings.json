@@ -12,5 +12,6 @@
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
   "editorMode": "vim",
-  "verbose": true
+  "verbose": true,
+  "agentPushNotifEnabled": true
 }

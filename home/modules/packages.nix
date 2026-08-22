@@ -6,6 +6,7 @@ let
   go = [ pkgs.go ];
   c_cpp = with pkgs; [ gnumake cmake clang clang-tools pkg-config ];
   gamedev = with pkgs; [ godot ];
+  research  = with pkgs; [ marimo ];
 
   # Desktop environment
   desktop = with pkgs; [ brightnessctl swaybg waybar swaylock ];
@@ -59,6 +60,9 @@ let
       nativeMessagingHosts = [ pkgs.firefoxpwa ];
     })
   ];
+
+  # Art
+  art = with pkgs; [ krita ];
 in
 {
   home.packages =
@@ -67,11 +71,13 @@ in
     messaging ++
     shell ++
     rust ++ go ++ c_cpp ++ gamedev ++
+    research ++
     cad ++
     browsers ++
     ai ++
     ai-llm-agents ++
     ai-tools ++
+    art ++
     code-memory;
 
   programs.eza.enable = true;
