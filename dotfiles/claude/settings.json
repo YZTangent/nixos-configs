@@ -4,7 +4,7 @@
     "command": "bash /home/yztangent/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": false
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "medium",
