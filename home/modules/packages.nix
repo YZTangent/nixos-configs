@@ -21,16 +21,17 @@ let
 
   # AI assistants
   ai = with pkgs; [ 
-    gemini-cli 
-    claude-code 
-    opencode 
-    lmstudio 
+    claude-code
+    opencode
+    lmstudio
+    codex
   ];
 
   ai-llm-agents = with inputs.llm-agents.packages."${pkgs.stdenv.hostPlatform.system}"; [
     antigravity-cli
     pi
     omp
+    dsh
   ];
 
   # AI agent tools
@@ -47,13 +48,9 @@ let
 
   # CAD
   cad = with pkgs; [
-    # openscad
-    # (orca-slicer.overrideAttrs (old: {
-    #   nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
-    #   postInstall = (old.postInstall or "") + ''
-    #     wrapProgram $out/bin/orca-slicer --set GBM_BACKEND dri
-    #   '';
-    # }))
+    orca-slicer
+    blender
+    openscad
   ];
 
   # Browsers
